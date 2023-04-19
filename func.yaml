@@ -1,0 +1,28 @@
+specVersion: 0.35.0
+name: hello
+runtime: node
+registry: docker.io/dtelless
+image: docker.io/dtelless/hello:latest
+imageDigest: sha256:e62589621368c59b3c7c9979a7b090a0ba12f1ba3fc68a73497f59377d74a7a6
+created: 2023-04-19T02:03:39.550034-03:00
+build: git
+  git:
+    url: https://github.com/dtelless/hello-omega.git
+    revision: main
+  builderImages:
+    pack: arm64v8/node
+  buildpacks: []
+  builder: pack
+  buildEnvs: []
+run:
+  volumes: []
+  envs: []
+deploy:
+  namespace: default
+  remote: false
+  annotations: {}
+  options: {}
+  labels: []
+  healthEndpoints:
+    liveness: /health/liveness
+    readiness: /health/readiness
